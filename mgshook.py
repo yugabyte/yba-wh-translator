@@ -56,8 +56,8 @@ def webhook():
             data['type'] = request.json['alerts'][0]['labels']['alertname']
             if custom_event_manager or emptyvars:
                 data['manager'] = custom_event_manager
-            data['class'] = 'Database'
-            data['description'] = request.json['alerts'][0]['annotations']['message']
+            data['class'] = 'Yugabyte DB'
+            data['description'] = request.json['alerts'][0]['annotations']['message'] + ". Universe: " + request.json['alerts'][0]['labels']['universe_name'] + ". Metric value: " + request.json['alerts'][0]['labels']['threshold']
             data['agent'] = 'Yugabyte'
             data['agent_time'] = request.json['alerts'][0]['startsAt']
             data['event_time'] = request.json['alerts'][0]['startsAt']
@@ -88,8 +88,8 @@ def webhook():
             data['type'] = request.json['alerts'][0]['labels']['alertname']
             if custom_event_manager or emptyvars:
                 data['manager'] = custom_event_manager
-            data['class'] = 'Database'
-            data['description'] = request.json['alerts'][0]['annotations']['message']
+            data['class'] = 'Yugabyte YBA'
+            data['description'] = request.json['alerts'][0]['annotations']['message'] + ". Metric value: " + request.json['alerts'][0]['labels']['threshold']
             data['agent'] = 'Yugabyte'
             data['agent_time'] = request.json['alerts'][0]['startsAt']
             data['event_time'] = request.json['alerts'][0]['startsAt']
